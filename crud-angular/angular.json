@@ -8,6 +8,9 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
         }
       },
       "root": "",
@@ -20,7 +23,7 @@
             "outputPath": "dist/crud-angular",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
+            "polyfills": ["src/polyfills.ts",
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
@@ -84,11 +87,13 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+            "main": "src/test.ts",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.config.js",
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
